@@ -7,6 +7,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { getMongoConfig } from './configs/mongo.config';
 
+
 @Module({
 	imports: [
 		ConfigModule.forRoot(),
@@ -21,4 +22,4 @@ import { getMongoConfig } from './configs/mongo.config';
 		ReviewModule
 	]
 })
-export class AppModule {}
+export class AppModule { }
