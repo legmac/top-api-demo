@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, HttpCode, NotFoundException, Param, Patch, Post, UsePipes, ValidationPipe } from "@nestjs/common";
 import { response } from "express";
-import { IdValidationPipe } from "src/pipes/ad-validation.pipe";
+import { IdValidationPipe } from "../pipes/ad-validation.pipe";
 import { CreateProductDto } from "./dto/create-product.dto";
 import { FindProductDto } from "./dto/find-product.dto";
 import { PRODUCT_NOT_FOUND_ERROR } from "./product.constants";
