@@ -13,7 +13,7 @@ export class FilesController {
 
 	@Post('upload')
 	@HttpCode(200)
-	@UseInterceptors(FileInterceptor('files'))
+	@UseInterceptors(FileInterceptor('file'))
 	async uploadFile(@UploadedFile() file: Express.Multer.File): Promise<FileElementResponse[]> {
 		const saveArray: MFile[] = [new MFile(file)];
 		if (file.mimetype.includes('image')) {
