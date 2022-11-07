@@ -18,6 +18,7 @@ import { TopPageService } from './top-page.service';
 		]),
 		HhModule
 	],
-	providers: [TopPageService]
+	providers: [TopPageService],
+	exports: [TopPageService]
 })
 export class TopPageModule { }

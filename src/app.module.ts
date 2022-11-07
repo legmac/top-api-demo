@@ -11,7 +11,7 @@ import { TelegramModule } from './telegram/telegram.module';
 import { getTelegramConfig } from './configs/telegram.config';
 import { HhModule } from './hh/hh.module';
 import { ScheduleModule } from '@nestjs/schedule';
-
+import { SitemapModule } from './sitemap/sitemap.module';
 
 @Module({
 	imports: [
@@ -32,7 +32,8 @@ import { ScheduleModule } from '@nestjs/schedule';
 			inject: [ConfigService],
 			useFactory: getTelegramConfig
 		}),
-		HhModule
+		HhModule,
+		SitemapModule
 	]
 })
 export class AppModule { }

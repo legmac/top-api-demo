@@ -32,4 +32,4 @@ import { UserModel } from './user.model';
 	],
 	providers: [AuthService, JwtStratagy]
 })
-export class AuthModule { }
+export class AuthModule {}
