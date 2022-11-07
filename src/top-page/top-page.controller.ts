@@ -62,4 +62,9 @@ export class TopPageController {
 		return this.topPageService.findAll();
 	}
 
+	@Get('textSearch/:text')
+	async textSearch(@Param('text') text: string) {
+		return this.topPageService.findByText(text);
+	}
+
 }
