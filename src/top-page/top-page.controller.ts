@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, HttpCode, NotFoundException, Param, Patch, Post, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
-import { HhService } from 'src/hh/hh.service';
+import { HhService } from '../hh/hh.service';
 import { JwtAuthGuard } from '../auth/guards/jwt.guard';
 import { CreateTopPageDto } from './dto/create-top-page.dto';
 import { FindTopPageDto } from './dto/find-top-page.dto';
@@ -70,8 +70,8 @@ export class TopPageController {
 		return this.topPageService.findByText(text);
 	}
 
-	@Post('test')
-	async test() {
+	@Post('test12')
+	async test12() {
 		const data = await this.topPageService.findForHhUpdate(new Date());
 		for (let page of data) {
 			const hhData = await this.hhService.getData(page.category);
