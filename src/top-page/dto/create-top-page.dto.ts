@@ -39,6 +39,12 @@ export class CreateTopPageDto {
 	title: string;
 
 	@IsString()
+	metaTitle: string;
+
+	@IsString()
+	metaDescription: string;
+
+	@IsString()
 	category: string;
 
 	@IsOptional()
@@ -57,7 +63,6 @@ export class CreateTopPageDto {
 
 
 	@IsArray()
-	@IsOptional()
-	@IsString({ each: true})
-	tags?: string[];
+	@IsString({ each: true })
+	tags: string[];
 }
