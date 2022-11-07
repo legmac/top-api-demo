@@ -1,3 +1,4 @@
+import { Optional } from '@nestjs/common';
 import { Type } from 'class-transformer';
 import { IsArray, IsDate, IsEnum, IsNumber, IsOptional, IsString, ValidateNested } from 'class-validator';
 import { TopLevelCategory } from '../top-page.model';
@@ -55,11 +56,15 @@ export class CreateTopPageDto {
 	@Type(() => HhDataDto)
 	hh?: HhDataDto;
 
+	@IsArray()
+	@Optional()
+	@ValidateNested()
 	@Type(() => TopPageAdvantageDto)
-	advantages: TopPageAdvantageDto[];
+	advantages?: TopPageAdvantageDto[];
 
+	@IsOptional()
 	@IsString()
-	seoText: string;
+	seoText?: string;
 
 	@IsString()
 	tagsTitle: string;
