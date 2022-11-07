@@ -1,1 +1,25 @@
 https://github.com/legmac/top-api-demo
+
+https://stackoverflow.com/questions/69058097/getting-this-error-when-trying-to-upload-images-through-a-form-typeerror-can
+
+
+    const formData = new FormData();
+
+    formData.append("itineraryId", itineraryId);
+    formData.append("itineraryDays", itineraryDays);
+    formData.append("itineraryName", itineraryName);
+    formData.append("itineraryDesc", itineraryDesc);
+    formData.append("itineraryImage", Filename1);
+    formData.append("file", Filename2);
+    formData.append("itineraryClass", itineraryClass);
+    formData.append("itineraryPriceAdult", itineraryPriceAdult);
+    formData.append("itineraryPriceChild", itineraryPriceChild);
+
+    axios.post("http://localhost:8070/itineraries/add" , formData, {headers: {'Content-Type': 'multipart/form-data'}}).then(()=>{
+        alert("Itinerary Addded");
+        window.location.reload();
+    }).catch((err) =>{
+        console.log(formData);
+        console.log(err);
+    })
+
