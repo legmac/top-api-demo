@@ -1,8 +1,10 @@
-import { HttpService, Injectable, Logger } from '@nestjs/common';
+import { HttpService } from '@nestjs/axios';
+import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { HhData } from 'src/top-page/top-page.model';
 import { API_URL, CLUSTER_FIND_ERROR, SALARY_CLUSTER_ID } from './hh.constants';
 import { HhResponse } from './hh.model';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable()
 export class HhService {
@@ -17,7 +19,7 @@ export class HhService {
 
     async getData(text: string) {
         try{
-            const { data } = await this.httpService.get<HhResponse>(API_URL.vacancies, {
+            const { data } = await lastValueFrom(this.httpService.get<HhResponse>(API_URL.vacancies, {
                 params: {
                     text,
                     clusters: true
@@ -26,7 +28,7 @@ export class HhService {
                     'User-Agent': 'Chromeum/1.0 (info@bnm.ro)'
                     // ,Authorization: 'Bearer ' + this.token
                 }
-            }).toPromise();
+            }))
             Logger.error(this.parseData(data))
             return this.parseData(data);
         }catch(e){
